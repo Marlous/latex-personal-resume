@@ -1,0 +1,92 @@
+\documentclass[UTF8, 11pt, a4paper]{ctexart}
+
+% 个人信息概要
+\newcommand{\Title}{个人简历\ae}
+\newcommand{\MyName}{姓名}
+\newcommand{\MyRole}{职业身份，意向：XXX}
+\newcommand{\Affiliation}{
+    所属单位机构
+}
+\newcommand{\Address}{
+    通讯地址
+}
+\newcommand{\Phone}{138-1234-1234}
+\newcommand{\Email}{youxiang@xxx.com}
+\newcommand{\Website}{https://myhomepage.com}
+
+% 字体大小
+\usepackage{anyfontsize}
+
+% 设置页边距
+\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
+
+% 行间距
+\renewcommand{\arraystretch}{1.4}
+% 段落无缩进
+\setlength{\parindent}{0pt} 
+
+% 列表条目之间的距离
+\usepackage{enumitem}
+\setlist{itemsep=0.2em}
+
+% 字体颜色
+\usepackage[usenames, dvipsnames]{xcolor}
+
+% 设置字体 with xelatex
+\usepackage{fontspec}
+\setmainfont[BoldFont=SourceSansPro-Bold]{SourceSansPro-Regular}
+\setmonofont{Source Code Pro}
+
+% 设置简历页脚
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\fontsize{10pt}{0}\selectfont \thepage}
+
+% 第一页不设置页眉页脚
+\thispagestyle{empty}
+
+% 输出 PDF 信息
+\usepackage[colorlinks=true]{hyperref}
+\hypersetup{
+    pdftitle = {\Title\ - \MyName},
+    pdfauthor = {\MyName},
+    linkcolor=black,
+    citecolor=black,
+    filecolor=black,
+    urlcolor=MidnightBlue,
+}
+
+\definecolor{MarkerColour}{HTML}{B6073F}
+\newcommand{\makefield}[2]{\makebox[1.5em]{\color{MarkerColour!80!black}#1} #2}
+
+% 模块标题左对齐
+\CTEXsetup[format={\bfseries}]{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 内容部分
+\begin{document}
+
+% 简历头部文本信息
+\begin{center}
+    {\fontsize{36pt}{0}\selectfont \MyName}
+    \\[0.5cm]
+    {\fontsize{16pt}{0}\selectfont \MyRole}
+    \\[0.3cm]
+    {\fontsize{10pt}{0}\selectfont
+        \Affiliation
+        \\[0.2cm]
+        \Address
+        \\[0.08cm]
+        Email: \href{mailto:\Email}{\texttt{\Email}}
+        \, | \,
+        Tel： \url{\Phone}
+        \, | \,
+        Website: \url{\Website}
+    }
+\end{center}
+
+% 导入简历其它若干模块
+\input{basic} % 个人基本信息
+\input{education} % 教育
+
+\end{document}
