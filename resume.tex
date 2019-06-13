@@ -1,4 +1,4 @@
-\documentclass[UTF8, 11pt, a4paper]{ctexart}
+\documentclass[UTF8, 5pt, a4paper]{ctexart}
 
 % 个人信息概要
 \newcommand{\Title}{个人简历\ae}
@@ -18,10 +18,11 @@
 \usepackage{anyfontsize}
 
 % 设置页边距
-\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
+\usepackage[left=0.8in, right=0.8in, top=0.5in, bottom=0.8in]{geometry}
 
 % 行间距
 \renewcommand{\arraystretch}{1.4}
+
 % 段落无缩进
 \setlength{\parindent}{0pt} 
 
@@ -39,7 +40,7 @@
 
 % 设置简历页脚
 \usepackage{fancyhdr}
-\pagestyle{fancy}
+\pagestyle{plain}
 \cfoot{\fontsize{10pt}{0}\selectfont \thepage}
 
 % 第一页不设置页眉页脚
@@ -60,33 +61,56 @@
 \newcommand{\makefield}[2]{\makebox[1.5em]{\color{MarkerColour!80!black}#1} #2}
 
 % 模块标题左对齐
-\CTEXsetup[format={\bfseries}]{section}
+\CTEXsetup[format={\bfseries \huge \bfseries}]{section}
+
+% 模块中标题与上下文，段落之间间距
+\usepackage{titlesec}
+\titlespacing*{\section} {0pt}{9pt}{0pt}
+
+% 分栏
+\usepackage{multicol}
+
+% 插入图片
+\usepackage{graphicx}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 内容部分
 \begin{document}
 
 % 简历头部文本信息
-\begin{center}
-    {\fontsize{36pt}{0}\selectfont \MyName}
-    \\[0.5cm]
-    {\fontsize{16pt}{0}\selectfont \MyRole}
-    \\[0.3cm]
-    {\fontsize{10pt}{0}\selectfont
-        \Affiliation
-        \\[0.2cm]
-        \Address
-        \\[0.08cm]
-        Email: \href{mailto:\Email}{\texttt{\Email}}
-        \, | \,
-        Tel： \url{\Phone}
-        \, | \,
-        Website: \url{\Website}
-    }
-\end{center}
+\begin{minipage}[b]{0.8\linewidth}
+    \begin{center}
+        {\fontsize{36pt}{0}\selectfont \MyName}
+        \\[0.5cm]
+        {\fontsize{16pt}{0}\selectfont \MyRole}
+        \\[0.3cm]
+        {\fontsize{10pt}{0}\selectfont
+            \Affiliation
+            \\[0.2cm]
+            \Address
+            \\[0.08cm]
+            Email: \href{mailto:\Email}{\texttt{\Email}}
+            \, | \,
+            Tel： \url{\Phone}
+            \, | \,
+            Website: \url{\Website}
+        }
+    \end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.2\linewidth}
+\includegraphics[height=8\baselineskip]{figure.png}
+\end{minipage}
 
 % 导入简历其它若干模块
-\input{basic} % 个人基本信息
+\input{basic} % 基本信息
 \input{education} % 教育
+\begin{multicols}{2}
+\input{skill} % 技能
+\input{project} % 项目经验
+\input{experience} % 经历
+\input{reward} % 荣誉等
+\input{addition} % 兴趣、正在学习、规划等
+\end{multicols}
 
 \end{document}
