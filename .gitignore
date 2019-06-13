@@ -4,3 +4,4 @@ src/*.blg
 src/*.log
 src/*.out
 src/*.gz
+src/*.pdf
