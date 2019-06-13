@@ -20,6 +20,9 @@
 - 荣誉与奖项 reward.tex
 - 其它（兴趣、正在学习、规划等） addition.tex
 
+3. 预览见 pdf 文件。  
+![预览](readme_img/图1.PNG)
+
 ## Usage - 用法
 1. 添加或删除照片：
 - 默认为有照片。
